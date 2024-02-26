@@ -3,10 +3,10 @@ const {generateSlug} = require('random-word-slugs')
 const {ECSClient,RunTaskCommand} = require('@aws-sdk/client-ecs')
 const {Server} = require('socket.io')
 const Redis = require('ioredis')
-
+const cors = require('cors');
 const app = express()
 const PORT = 9000
-
+app.use(cors());
 const subscriber = new Redis('rediss://default:AVNS_lZx6bE8YBCGp4YOMtrw@redis-73f113c-codesail.a.aivencloud.com:20454')
 
 const io = new Server({cors:'*'})
